@@ -171,7 +171,11 @@ class ConversionsEntryPoint extends AbstractEntryPoint
             'buy_amount_to' => $criteria->getBuyAmountTo(),
             'sell_amount_from' => $criteria->getSellAmountFrom(),
             'sell_amount_to' => $criteria->getSellAmountTo(),
-            'unique_request_id' => $criteria->getUniqueRequestId()
+            'unique_request_id' => $criteria->getUniqueRequestId(),
+            'page' => $criteria->getCurrentPage(),
+            'per_page' => $criteria->getPerPage(),
+            'order' => $criteria->getOrder(),
+            'order_asc_desc' => $criteria->getOrderAscDesc()
         ];
     }
 }

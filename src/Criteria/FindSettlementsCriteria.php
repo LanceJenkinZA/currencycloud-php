@@ -4,7 +4,7 @@ namespace CurrencyCloud\Criteria;
 
 use DateTime;
 
-class FindSettlementsCriteria
+class FindSettlementsCriteria extends PaginationCriteria
 {
 
     /**

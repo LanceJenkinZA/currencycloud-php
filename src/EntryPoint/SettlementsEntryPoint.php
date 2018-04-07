@@ -222,7 +222,11 @@ class SettlementsEntryPoint extends AbstractEntityEntryPoint
             'updated_at_from' => (null === $updatedAtFrom) ? null : $updatedAtFrom->format(DateTime::ISO8601),
             'updated_at_to' => (null === $updatedAtTo) ? null : $updatedAtTo->format(DateTime::ISO8601),
             'released_at_from' => (null === $releasedAtFrom) ? null : $releasedAtFrom->format(DateTime::ISO8601),
-            'released_at_to' => (null === $releasedAtTo) ? null : $releasedAtTo->format(DateTime::ISO8601)
+            'released_at_to' => (null === $releasedAtTo) ? null : $releasedAtTo->format(DateTime::ISO8601),
+            'page' => $criteria->getCurrentPage(),
+            'per_page' => $criteria->getPerPage(),
+            'order' => $criteria->getOrder(),
+            'order_asc_desc' => $criteria->getOrderAscDesc()
         ];
     }
 }
