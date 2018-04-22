@@ -143,8 +143,6 @@ class BeneficiariesEntryPoint extends AbstractEntityEntryPoint
             'iban' => $beneficiary->getIban(),
             'bank_address' => $beneficiary->getBankAddress(),
             'bank_name' => $beneficiary->getBankName(),
-            'default_beneficiary' => (null === $isDefaultBeneficiary) ? null :
-                ($isDefaultBeneficiary ? 'true' : 'false'),
             'bank_account_type' => $beneficiary->getBankAccountType(),
             'beneficiary_entity_type' => $beneficiary->getBeneficiaryEntityType(),
             'beneficiary_company_name' => $beneficiary->getBeneficiaryCompanyName(),
@@ -167,6 +165,8 @@ class BeneficiariesEntryPoint extends AbstractEntityEntryPoint
         }
 
         $common += [
+            'default_beneficiary' => (null === $isDefaultBeneficiary) ? null :
+                ($isDefaultBeneficiary ? 'true' : 'false'),
             'bank_account_holder_name' => $beneficiary->getBankAccountHolderName(),
             'name' => $beneficiary->getName(),
             'email' => $beneficiary->getEmail()
