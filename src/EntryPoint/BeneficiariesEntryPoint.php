@@ -157,6 +157,7 @@ class BeneficiariesEntryPoint extends AbstractEntityEntryPoint
                     ->format('Y-m-d'),
             'beneficiary_identification_type' => $beneficiary->getBeneficiaryIdentificationType(),
             'beneficiary_identification_value' => $beneficiary->getBeneficiaryIdentificationValue(),
+            'payment_types' => $beneficiary->getPaymentTypes(),
         ];
 
         if ($convertForValidate) {
@@ -166,7 +167,7 @@ class BeneficiariesEntryPoint extends AbstractEntityEntryPoint
         $common += [
             'default_beneficiary' => (null === $isDefaultBeneficiary) ? null :
                 ($isDefaultBeneficiary ? 'true' : 'false'),
-            'payment_types' => $beneficiary->getPaymentTypes(),
+
             'bank_account_holder_name' => $beneficiary->getBankAccountHolderName(),
             'name' => $beneficiary->getName(),
             'email' => $beneficiary->getEmail()
