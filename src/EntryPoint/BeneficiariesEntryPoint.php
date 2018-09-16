@@ -71,8 +71,8 @@ class BeneficiariesEntryPoint extends AbstractEntityEntryPoint
         return $this->doUpdate(sprintf(
             'beneficiaries/%s',
             $beneficiary->getId()
-        ), $beneficiary, function ($entity, $onBehalfOf) {
-            return $this->convertBeneficiaryToRequest($entity, $onBehalfOf, false, true);
+        ), $beneficiary, function ($entity) {
+            return $this->convertBeneficiaryToRequest($entity, false, true);
         }, function ($response) {
             return $this->createBeneficiaryFromResponse($response);
         });
