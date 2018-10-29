@@ -194,11 +194,9 @@ class PaymentsEntryPoint extends AbstractEntityEntryPoint
         if (null === $pagination) {
             $pagination = new Pagination();
         }
-        return $this->doFind('payments/find', $payment, $pagination, function ($payment, $onBehalfOf) use ($criteria) {
+        return $this->doFind('payments/find', $payment, $pagination, function ($payment) use ($criteria) {
             return $this->convertPaymentToRequest($payment, true)
-            + $this->convertFindPaymentsCriteriaToRequest($criteria) + [
-                'on_behalf_of' => $onBehalfOf
-            ];
+            + $this->convertFindPaymentsCriteriaToRequest($criteria);
         }, function (stdClass $response) {
             return $this->createPaymentFromResponse($response);
         }, function ($items, $pagination) {
