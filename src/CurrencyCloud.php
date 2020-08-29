@@ -24,7 +24,7 @@ use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
 use InvalidArgumentException;
 use LogicException;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Contracts\EventDispatcher\EventDispatcher;
 
 class CurrencyCloud
 {

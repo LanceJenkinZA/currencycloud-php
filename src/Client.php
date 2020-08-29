@@ -7,7 +7,7 @@ use CurrencyCloud\EventDispatcher\Event\ClientHttpErrorEvent;
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
 use stdClass;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 class Client
 {
