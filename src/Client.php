@@ -65,7 +65,7 @@ class Client
             $requestParams,
             $options,
             $secured
-        ));
+        ), BeforeClientRequestEvent::NAME);
 
         $originalRequest = [
             'method' => $method,
@@ -131,7 +131,7 @@ class Client
                         $url,
                         $originalRequest
                     );
-                    $this->eventDispatcher->dispatch( $event);
+                    $this->eventDispatcher->dispatch( $event, ClientHttpErrorEvent::NAME);
                     $interceptedResponse = $event->getInterceptedResponse();
                     if (null !== $interceptedResponse) {
                         return $interceptedResponse;
