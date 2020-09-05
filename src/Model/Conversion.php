@@ -127,6 +127,10 @@ class Conversion
     private $uniqueRequestId;
 
     /**
+     * @var float
+     */
+    private $unallocated_funds;
+    /**
      * @param string $buyCurrency
      * @param string $sellCurrency
      * @param string $fixedSide
@@ -680,4 +684,24 @@ class Conversion
         $this->uniqueRequestId = $uniqueRequestId;
         return $this;
     }
+
+    /**
+     * @return float
+     */
+    public function getUnallocatedFunds(): float
+    {
+        return $this->unallocated_funds;
+    }
+
+    /**
+     * @param float $unallocated_funds
+     * @return Conversion
+     */
+    public function setUnallocatedFunds(float $unallocated_funds): Conversion
+    {
+        $this->unallocated_funds = $unallocated_funds;
+        return $this;
+    }
+
+
 }
