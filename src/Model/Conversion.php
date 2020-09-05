@@ -129,7 +129,7 @@ class Conversion
     /**
      * @var float
      */
-    private $unallocated_funds;
+    private $unallocatedFunds;
     /**
      * @param string $buyCurrency
      * @param string $sellCurrency
@@ -690,16 +690,16 @@ class Conversion
      */
     public function getUnallocatedFunds(): float
     {
-        return $this->unallocated_funds;
+        return $this->unallocatedFunds;
     }
 
     /**
-     * @param float $unallocated_funds
+     * @param float $unallocatedFunds
      * @return Conversion
      */
-    public function setUnallocatedFunds(float $unallocated_funds): Conversion
+    public function setUnallocatedFunds(float $unallocatedFunds): Conversion
     {
-        $this->unallocated_funds = $unallocated_funds;
+        $this->unallocatedFunds = $unallocatedFunds;
         return $this;
     }
 
