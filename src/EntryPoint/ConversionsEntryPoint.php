@@ -85,6 +85,7 @@ class ConversionsEntryPoint extends AbstractEntryPoint
             ->setPaymentIds($response->payment_ids)
             ->setCreatedAt(new DateTime($response->created_at))
             ->setUpdatedAt(new DateTime($response->updated_at))
+            ->setUnallocatedFuncs($response->unallocated_funds)
             ->setUniqueRequestId($response->unique_request_id);
 
         $this->setIdProperty($conversion, $response->id);

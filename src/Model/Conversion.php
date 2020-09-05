@@ -127,7 +127,7 @@ class Conversion
     private $uniqueRequestId;
 
     /**
-     * @var float
+     * @var string
      */
     private $unallocatedFunds;
     /**
@@ -686,18 +686,18 @@ class Conversion
     }
 
     /**
-     * @return float
+     * @return string
      */
-    public function getUnallocatedFunds(): float
+    public function getUnallocatedFunds()
     {
         return $this->unallocatedFunds;
     }
 
     /**
-     * @param float $unallocatedFunds
+     * @param string $unallocatedFunds
      * @return Conversion
      */
-    public function setUnallocatedFunds(float $unallocatedFunds): Conversion
+    public function setUnallocatedFunds($unallocatedFunds)
     {
         $this->unallocatedFunds = $unallocatedFunds;
         return $this;
