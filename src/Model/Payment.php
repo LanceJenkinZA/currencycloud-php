@@ -95,7 +95,117 @@ class Payment implements EntityInterface
      * @var string
      */
     private $failureReturnedAmount;
+    /**
+     * @var String
+     */
+    private $ultimateBeneficiaryName;
+    /**
+     * @var String
+     */
+    private $purposeCode;
+    /**
+     * @var String
+     */
+    private $chargeType;
+    /**
+     * @var String
+     */
+    private $feeAmount;
+    /**
+     * @var String
+     */
+    private $feeCurrency;
 
+    /**
+     * @return String
+     */
+    public function getUltimateBeneficiaryName(): string
+    {
+        return $this->ultimateBeneficiaryName;
+    }
+
+    /**
+     * @param String $ultimateBeneficiaryName
+     * @return Payment
+     */
+    public function setUltimateBeneficiaryName(string $ultimateBeneficiaryName): Payment
+    {
+        $this->ultimateBeneficiaryName = $ultimateBeneficiaryName;
+        return $this;
+    }
+
+    /**
+     * @return String
+     */
+    public function getPurposeCode(): string
+    {
+        return $this->purposeCode;
+    }
+
+    /**
+     * @param String $purposeCode
+     * @return Payment
+     */
+    public function setPurposeCode(string $purposeCode): Payment
+    {
+        $this->purposeCode = $purposeCode;
+        return $this;
+    }
+
+    /**
+     * @return String
+     */
+    public function getChargeType(): string
+    {
+        return $this->chargeType;
+    }
+
+    /**
+     * @param String $chargeType
+     * @return Payment
+     */
+    public function setChargeType(string $chargeType): Payment
+    {
+        $this->chargeType = $chargeType;
+        return $this;
+    }
+
+    /**
+     * @return String
+     */
+    public function getFeeAmount(): string
+    {
+        return $this->feeAmount;
+    }
+
+    /**
+     * @param String $feeAmount
+     * @return Payment
+     */
+    public function setFeeAmount(string $feeAmount): Payment
+    {
+        $this->feeAmount = $feeAmount;
+        return $this;
+    }
+
+    /**
+     * @return String
+     */
+    public function getFeeCurrency(): string
+    {
+        return $this->feeCurrency;
+    }
+
+    /**
+     * @param String $feeCurrency
+     * @return Payment
+     */
+    public function setFeeCurrency(string $feeCurrency): Payment
+    {
+        $this->feeCurrency = $feeCurrency;
+        return $this;
+    }
+    
     /**
      * @param string $currency
      * @param string $beneficiaryId
