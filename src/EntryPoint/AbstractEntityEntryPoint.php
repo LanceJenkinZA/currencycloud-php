@@ -131,9 +131,9 @@ abstract class AbstractEntityEntryPoint extends AbstractEntryPoint
         $response = $this->request(
             'GET',
             $entryPoint,
-            call_user_func($converterToRequest, $searchModel) + $this->convertPaginationToRequest(
+            call_user_func($converterToRequest, $searchModel, $onBehalfOf) + $this->convertPaginationToRequest(
                 $pagination
-            ) + ["on_behalf_of" => $onBehalfOf]
+            )
         );
         $beneficiaries = [];
         foreach ($response->$property as $searchModel) {
@@ -168,7 +168,7 @@ abstract class AbstractEntityEntryPoint extends AbstractEntryPoint
             'POST',
             $entryPoint,
             [],
-            call_user_func($converterToRequest, $changeSet)  + ["on_behalf_of" => $onBehalfOf]
+            call_user_func($converterToRequest, $changeSet, $onBehalfOf)
         );
         $newEntity = call_user_func($converterFromResponse, $response);
 

@@ -71,8 +71,8 @@ class BeneficiariesEntryPoint extends AbstractEntityEntryPoint
         return $this->doUpdate(sprintf(
             'beneficiaries/%s',
             $beneficiary->getId()
-        ), $beneficiary, function ($entity) {
-            return $this->convertBeneficiaryToRequest($entity, false, true);
+        ), $beneficiary, function ($entity, $onBehalfOf) {
+            return $this->convertBeneficiaryToRequest($entity, $onBehalfOf, false, true);
         }, function ($response) {
             return $this->createBeneficiaryFromResponse($response);
         });
@@ -93,8 +93,8 @@ class BeneficiariesEntryPoint extends AbstractEntityEntryPoint
         if (null === $pagination) {
             $pagination = new Pagination();
         }
-        return $this->doFind('beneficiaries/find', $beneficiary, $pagination, function ($entity) {
-            return $this->convertBeneficiaryToRequest($entity);
+        return $this->doFind('beneficiaries/find', $beneficiary, $pagination, function ($entity, $onBehalfOf) {
+            return $this->convertBeneficiaryToRequest($entity, $onBehalfOf);
         }, function ($response) {
             return $this->createBeneficiaryFromResponse($response);
         }, function (array $entities, Pagination $pagination) {
@@ -143,6 +143,8 @@ class BeneficiariesEntryPoint extends AbstractEntityEntryPoint
             'iban' => $beneficiary->getIban(),
             'bank_address' => $beneficiary->getBankAddress(),
             'bank_name' => $beneficiary->getBankName(),
+            'default_beneficiary' => (null === $isDefaultBeneficiary) ? null :
+                ($isDefaultBeneficiary ? 'true' : 'false'),
             'bank_account_type' => $beneficiary->getBankAccountType(),
             'beneficiary_entity_type' => $beneficiary->getBeneficiaryEntityType(),
             'beneficiary_company_name' => $beneficiary->getBeneficiaryCompanyName(),
@@ -157,7 +159,7 @@ class BeneficiariesEntryPoint extends AbstractEntityEntryPoint
                     ->format('Y-m-d'),
             'beneficiary_identification_type' => $beneficiary->getBeneficiaryIdentificationType(),
             'beneficiary_identification_value' => $beneficiary->getBeneficiaryIdentificationValue(),
-            'payment_types' => $beneficiary->getPaymentTypes(),
+            'payment_types' => $beneficiary->getPaymentTypes()
         ];
 
         if ($convertForValidate) {
@@ -165,9 +167,6 @@ class BeneficiariesEntryPoint extends AbstractEntityEntryPoint
         }
 
         $common += [
-            'default_beneficiary' => (null === $isDefaultBeneficiary) ? null :
-                ($isDefaultBeneficiary ? 'true' : 'false'),
-
             'bank_account_holder_name' => $beneficiary->getBankAccountHolderName(),
             'name' => $beneficiary->getName(),
             'email' => $beneficiary->getEmail(),
