@@ -37,10 +37,7 @@ class Conversion
      * @var string
      */
     private $status;
-    /**
-     * @var string
-     */
-    private $partnerStatus;
+
     /**
      * @var string
      */
@@ -267,24 +264,6 @@ class Conversion
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getPartnerStatus()
-    {
-        return $this->partnerStatus;
-    }
-
-    /**
-     * @param string $partnerStatus
-     *
-     * @return $this
-     */
-    public function setPartnerStatus($partnerStatus)
-    {
-        $this->partnerStatus = $partnerStatus;
-        return $this;
-    }
 
     /**
      * @return string
