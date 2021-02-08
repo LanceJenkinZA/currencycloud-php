@@ -211,26 +211,21 @@ class ConversionsEntryPoint extends AbstractEntryPoint
      *
      * @return Conversions
      */
-    public function find(FindConversionsCriteria $criteria = null, $onBehalfOf = null)
+    public function find(FindConversionsCriteria $criteria = null, Pagination $pagination = null, $onBehalfOf = null)
     {
         if (null === $criteria) {
             $criteria = new FindConversionsCriteria();
         }
-
-        $response = $this->request(
-            'GET',
-            'conversions/find',
-            $this->convertFindConversionCriteriaToRequest($criteria) + [
-                'on_behalf_of' => $onBehalfOf
-            ]
-        );
-
-
-        $conversions = [];
-        foreach ($response->conversions as $data) {
-            $conversions[] = $this->createConversionFromResponse($data);
+        if (null === $pagination) {
+            $pagination = new Pagination();
         }
-        return new Conversions($conversions, $this->createPaginationFromResponse($response));
+        return $this->doFind('conversions/find', $criteria, $pagination, function ($entity, $onBehalfOf) {
+            return $this->convertFindConversionCriteriaToRequest($entity) + ['on_behalf_of' => $onBehalfOf];
+        }, function ($response) {
+            return $this->createConversionFromResponse($response);
+        }, function (array $entities, Pagination $pagination) {
+            return new Conversions($entities, $pagination);
+        }, 'conversions', $onBehalfOf);
     }
 
     /**
