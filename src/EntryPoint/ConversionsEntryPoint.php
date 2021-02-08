@@ -20,7 +20,7 @@ use CurrencyCloud\Model\Pagination;
 use DateTime;
 use stdClass;
 
-class ConversionsEntryPoint extends AbstractEntryPoint
+class ConversionsEntryPoint extends AbstractEntityEntryPoint
 {
 
     /**
