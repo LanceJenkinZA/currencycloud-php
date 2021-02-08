@@ -194,7 +194,7 @@ class CurrencyCloud
             new BalancesEntryPoint($client),
             new BeneficiariesEntryPoint($entityManager, $client),
             new ContactsEntryPoint($entityManager, $client),
-            new ConversionsEntryPoint($client),
+            new ConversionsEntryPoint($entityManager, $client),
             new PayersEntryPoint($client),
             new IbansEntryPoint($entityManager, $client),
             new PaymentsEntryPoint($entityManager, $client),
