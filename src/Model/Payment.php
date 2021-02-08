@@ -112,7 +112,7 @@ class Payment implements EntityInterface
      */
     private $feeCurrency;
     /**
-     * @var String
+     * @var String|null
      */
     private $ultimateBeneficiaryName;
     /**
@@ -541,18 +541,18 @@ class Payment implements EntityInterface
         return $this;
     }
     /**
-     * @return String
+     * @return String|null
      */
-    public function getUltimateBeneficiaryName(): string
+    public function getUltimateBeneficiaryName()
     {
         return $this->ultimateBeneficiaryName;
     }
 
     /**
-     * @param String $ultimateBeneficiaryName
+     * @param String|null: $ultimateBeneficiaryName
      * @return Payment
      */
-    public function setUltimateBeneficiaryName(string $ultimateBeneficiaryName): Payment
+    public function setUltimateBeneficiaryName($ultimateBeneficiaryName): Payment
     {
         $this->ultimateBeneficiaryName = $ultimateBeneficiaryName;
         return $this;
