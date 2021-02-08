@@ -37,7 +37,6 @@ class Conversion
      * @var string
      */
     private $status;
-
     /**
      * @var string
      */
@@ -122,6 +121,10 @@ class Conversion
      * @var String
      */
     private $uniqueRequestId;
+    /**
+     * @var String
+     */
+    private $conversionDatePreference;
 
     /**
      * @var string
@@ -150,6 +153,14 @@ class Conversion
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
     /**
      * @return string
      */
@@ -661,6 +672,25 @@ class Conversion
     public function setUniqueRequestId($uniqueRequestId)
     {
         $this->uniqueRequestId = $uniqueRequestId;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getConversionDatePreference()
+    {
+        return $this->conversionDatePreference;
+    }
+
+    /**
+     * @param string $conversionDatePreference
+     *
+     * @return $this
+     */
+    public function setConversionDatePreference($conversionDatePreference)
+    {
+        $this->conversionDatePreference = $conversionDatePreference;
         return $this;
     }
 
