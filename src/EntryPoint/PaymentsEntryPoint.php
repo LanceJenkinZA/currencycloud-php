@@ -258,11 +258,7 @@ class PaymentsEntryPoint extends AbstractEntityEntryPoint
             'transferred_at_from' => (null === $transferredAtFrom) ? null : $transferredAtFrom->format(DateTime::RFC3339),
             'transferred_at_to' => (null === $transferredAtTo) ? null : $transferredAtTo->format(DateTime::RFC3339),
             'amount_from' => $criteria->getAmountFrom(),
-            'amount_to' => $criteria->getAmountTo(),
-            'page' => $criteria->getCurrentPage(),
-            'per_page' => $criteria->getPerPage(),
-            'order' => $criteria->getOrder(),
-            'order_asc_desc' => $criteria->getOrderAscDesc()
+            'amount_to' => $criteria->getAmountTo()
         ];
     }
 

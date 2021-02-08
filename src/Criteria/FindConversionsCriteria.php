@@ -4,7 +4,7 @@ namespace CurrencyCloud\Criteria;
 
 use DateTime;
 
-class FindConversionsCriteria extends PaginationCriteria
+class FindConversionsCriteria
 {
 
     /**
